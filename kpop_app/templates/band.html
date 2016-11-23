@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    {{ band_info['bandName'] }} - {{ super() }}
+{% endblock title %}
+
+{% block content %}
+     <a href="{{ url_for('updateband', bandname= bandname) }}"> update band</a>    
+    <p><img src="{{ band_info['image']  }}"></p>
+<div class="container jumbotron">
+    <h1> {{ band_info['bandName'] }}</h1>
+    <p> {{ band_info['description'] }}</p>
+</div>
+
+{% endblock content %}
+

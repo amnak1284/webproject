@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}kpop!{% endblock %}</title>
+
+	{% block stylesheets %}
+	<link rel="stylesheet" 
+	      type="text/css" 
+		  href="{{ url_for('static', 
+		  				    filename='vendor/bootstrap/css/bootstrap.css') }}">
+	{% endblock stylesheets %}
+
+
+</head>
+
+
+<body>
+    {% block body %}
+    <p><a href="{{ url_for('createBand') }} " id="makebutton">make new band</a></p>
+	{% block content %}
+	<div class="container">
+	    <h1 class="jumbotron">the kpop page</h1>
+	</div>
+
+	{% for bandname in bands %}
+		<a href="{{ url_for('bandView', bandname=bandname) }}">{{ bandname }}</a>
+	{% endfor %} 
+    
+
+	{% endblock content %} 
+	
+	{% endblock body %}
+	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/index.js')}} "></script>
+	<script type="text/javascript" 
+	        src="{{ url_for('static', 
+	                        filename='vendor/bootstrap/js/bootstrap.js') }}">
+	                        	
+	</script>	                        
+</body>
+</html>
